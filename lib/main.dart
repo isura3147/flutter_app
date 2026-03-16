@@ -34,7 +34,7 @@ class _GreetState extends State<Greet> {
               Text("Hello $_name", style: _greetStyle),
               Padding(
                 padding: const EdgeInsets.only(left: 5.0),
-                child: Text("!!!!", style: _greetStyle),
+                child: Text("!", style: _greetStyle),
               ),
             ],
           ),
@@ -61,7 +61,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Coffee Masters',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.brown),
+        appBarTheme: AppBarTheme(backgroundColor: Colors.brown.shade600),
       ),
       home: const MyHomePage(),
     );
@@ -79,11 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Image.asset("images/logo.png"),
-      ),
+      appBar: AppBar(centerTitle: true, title: Image.asset("images/logo.png")),
       body: const Greet(),
     );
   }
