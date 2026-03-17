@@ -1,4 +1,6 @@
-import 'package:coffemasters_flutter/offerspage.dart';
+import 'package:coffemasters_flutter/pages/offerspage.dart';
+import 'package:coffemasters_flutter/pages/orderspage.dart';
+import 'package:coffemasters_flutter/pages/menupage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -85,13 +87,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
     switch (_selectedIndex) {
       case 0:
-        currentWidgetPage = Text("Menu Page");
+        currentWidgetPage = MenuPage();
         break;
       case 1:
         currentWidgetPage = Offerspage();
         break;
       case 2:
-        currentWidgetPage = Text("Order Page");
+        currentWidgetPage = OrdersPage();
         break;
       default:
     }
@@ -106,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
             _selectedIndex = newIndex;
           });
         },
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Colors.brown.shade600,
         selectedItemColor: Colors.yellow[400],
         unselectedItemColor: Colors.brown[50],
         items: [
