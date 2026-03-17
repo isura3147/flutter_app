@@ -1,3 +1,4 @@
+import 'package:coffemasters_flutter/offerspage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -80,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(centerTitle: true, title: Image.asset("images/logo.png")),
-      body: const Greet(),
+      body: const Offerspage(),
     );
   }
 }
