@@ -45,7 +45,6 @@ class _GreetState extends State<Greet> {
             onChanged: (value) => setState(() {
               _name = value;
             }),
-            style: TextStyle(color: const Color.fromARGB(255, 202, 22, 226)),
           ),
         ),
       ],
