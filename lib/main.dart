@@ -77,12 +77,38 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _selectedIndex = 1;
+
   @override
   Widget build(BuildContext context) {
+    Widget currentWidgetPage = Text("This is a widget");
+
+    switch (_selectedIndex) {
+      case 0:
+        currentWidgetPage = Text("Menu Page");
+        break;
+      case 1:
+        currentWidgetPage = Offerspage();
+        break;
+      case 2:
+        currentWidgetPage = Text("Order Page");
+        break;
+      default:
+    }
+
     return Scaffold(
       appBar: AppBar(centerTitle: true, title: Image.asset("images/logo.png")),
-      body: const Offerspage(),
+      body: currentWidgetPage,
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: (newIndex) {
+          setState(() {
+            _selectedIndex = newIndex;
+          });
+        },
+        backgroundColor: Theme.of(context).primaryColor,
+        selectedItemColor: Colors.yellow[400],
+        unselectedItemColor: Colors.brown[50],
         items: [
           BottomNavigationBarItem(label: "Menu", icon: Icon(Icons.coffee)),
           BottomNavigationBarItem(
