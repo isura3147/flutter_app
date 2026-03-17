@@ -82,6 +82,19 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(centerTitle: true, title: Image.asset("images/logo.png")),
       body: const Offerspage(),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(label: "Menu", icon: Icon(Icons.coffee)),
+          BottomNavigationBarItem(
+            label: "Offers",
+            icon: Icon(Icons.local_offer),
+          ),
+          BottomNavigationBarItem(
+            label: "Order",
+            icon: Icon(Icons.shopping_cart),
+          ),
+        ],
+      ),
     );
   }
 }
