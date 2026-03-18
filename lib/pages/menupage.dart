@@ -8,21 +8,25 @@ class MenuPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Product p = Product(id: 1, name: "Coffee", price: 200, image: "");
-    Product q = Product(id: 1, name: "Black Coffee", price: 200, image: "");
-    Product t = Product(
-      id: 1,
-      name: "Another Black Coffee",
-      price: 200,
-      image: "",
-    );
-
-    return ListView(
-      children: [
-        ProductItem(product: p, onAdd: () {}),
-        ProductItem(product: q, onAdd: () {}),
-        ProductItem(product: t, onAdd: () {}),
-      ],
+    return FutureBuilder(
+      future: dataManager.getMenu(),
+      builder: ((context, snapshot) {
+        if (snapshot.hasData) {
+          var categories = snapshot.data as List<Category>;
+          return ListView.builder(
+            itemCount: categories.length,
+            itemBuilder: ((context, index) {
+              return Text(categories[index].name);
+            }),
+          );
+        } else {
+          if (snapshot.hasError) {
+            return Text("There was an error");
+          } else {
+            return CircularProgressIndicator();
+          }
+        }
+      }),
     );
   }
 }
