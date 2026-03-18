@@ -5,7 +5,7 @@ class Offerspage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Wrap(
       children: const [
         Offer(title: "A Great Offer", description: "Buy One Get One Free"),
         Offer(title: "A Great Offer", description: "Buy One Get One Free"),
@@ -26,6 +26,7 @@ class Offer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 150,
+      width: 300,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Card(
