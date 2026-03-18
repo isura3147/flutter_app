@@ -17,9 +17,9 @@ class MenuPage extends StatelessWidget {
 
     return ListView(
       children: [
-        ProductItem(product: p),
-        ProductItem(product: q),
-        ProductItem(product: t),
+        ProductItem(product: p, onAdd: () {}),
+        ProductItem(product: q, onAdd: () {}),
+        ProductItem(product: t, onAdd: () {}),
       ],
     );
   }
@@ -27,8 +27,9 @@ class MenuPage extends StatelessWidget {
 
 class ProductItem extends StatelessWidget {
   final Product product;
+  final Function onAdd;
 
-  const ProductItem({super.key, required this.product});
+  const ProductItem({super.key, required this.product, required this.onAdd});
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +42,10 @@ class ProductItem extends StatelessWidget {
           children: [
             Image.asset("images/black_coffee.png"),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -60,12 +63,17 @@ class ProductItem extends StatelessWidget {
                     ),
                   ],
                 ),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.brown[400],
+                Padding(
+                  padding: const EdgeInsets.only(right: 16.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      onAdd(product);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.brown[400],
+                    ),
+                    child: Text("Add", style: TextStyle(color: Colors.white)),
                   ),
-                  child: Text("Add", style: TextStyle(color: Colors.white)),
                 ),
               ],
             ),
