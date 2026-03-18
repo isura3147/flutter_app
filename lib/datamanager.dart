@@ -25,7 +25,7 @@ class DataManager {
       await fetchMenu();
     }
 
-    return _menu!;
+    return _menu ?? [];
   }
 
   void cartAdd(Product p) {
