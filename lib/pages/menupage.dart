@@ -24,10 +24,23 @@ class ProductItem extends StatelessWidget {
       child: Card(
         elevation: 10,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset("images/black_coffee.png"),
-            Text(product.name),
-            Text("\$${product.price}"),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                product.name,
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "\$${product.price}",
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+            ),
           ],
         ),
       ),
