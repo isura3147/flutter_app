@@ -1,3 +1,4 @@
+import 'package:coffemasters_flutter/datamanager.dart';
 import 'package:coffemasters_flutter/pages/offerspage.dart';
 import 'package:coffemasters_flutter/pages/orderspage.dart';
 import 'package:coffemasters_flutter/pages/menupage.dart';
@@ -79,6 +80,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  DataManager dataManager = DataManager();
   int _selectedIndex = 1;
 
   @override
@@ -87,13 +89,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
     switch (_selectedIndex) {
       case 0:
-        currentWidgetPage = MenuPage();
+        currentWidgetPage = MenuPage(dataManager: dataManager);
         break;
       case 1:
         currentWidgetPage = Offerspage();
         break;
       case 2:
-        currentWidgetPage = OrdersPage();
+        currentWidgetPage = OrdersPage(dataManager: dataManager);
         break;
       default:
     }
